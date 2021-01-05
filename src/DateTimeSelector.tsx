@@ -19,12 +19,14 @@ function DateTimeSelector(props: any) {
           selectedAppointmentType={props.selectedAppointmentType}
           providerId={props.providerId}
           />
-          
+
         <AvailableSlots
           selectedDay={selectedDay}
-          setSelectedDay={setSelectedDay}
+          setSelectedSlot={props.setSelectedSlot}
+          selectedSlot={props.selectedSlot}
           selectedAppointmentType={props.selectedAppointmentType}
           providerId={props.providerId}
+          moveToNextStep={props.moveToNextStep}
         />
       </div>
   );

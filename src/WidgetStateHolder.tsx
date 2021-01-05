@@ -10,6 +10,7 @@ function WidgetStateHolder() {
   const [selectedAppointmentType, setAppointmentType] = useState();
   const [selectedContactType, setContactType] = useState();
   const [stepIndex, setStepIndex] = useState(0);
+  const [selectedSlot, setSelectedSlot] = useState();
 
   const currentStep = steps[stepIndex]
 
@@ -30,6 +31,9 @@ function WidgetStateHolder() {
       <DateTimeSelector
         selectedAppointmentType={selectedAppointmentType}
         providerId={"43041487-7932-4c87-9b49-251df4b42a9c"}
+        selectedSlot={selectedSlot}
+        setSelectedSlot={setSelectedSlot}
+        moveToNextStep={() => setStepIndex(stepIndex + 1)}
       />
     );
   }

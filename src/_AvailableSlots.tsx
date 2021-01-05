@@ -1,6 +1,7 @@
 import React, { useEffect, useState }  from 'react';
 import axios from "axios";
 import { format, parse } from 'date-fns'
+import { toDate } from './utils/dateUtils'
 
 function categorizeSlots(availableSlotsForRange: Array<any>) {
 
@@ -17,7 +18,7 @@ function categorizeSlots(availableSlotsForRange: Array<any>) {
       const slot = availableSlotsForRange[i]
       const dt = slot.date;
 
-      const date = parse(dt, 'yyyy-MM-dd HH:mm:ss xx', new Date())
+      const date = toDate(dt)
 
       if (format(date, "a") === "AM" && parseInt(format(date, "H"),10) < 12) {
         morningTimes.push(slot);
@@ -31,6 +32,14 @@ function categorizeSlots(availableSlotsForRange: Array<any>) {
 
     return [morningTimes,afternoonTimes,eveningTimes]
   }
+
+function availableSlot(slot: any, index: number, props: any) {
+	return (	
+	<div 
+		key={index} 
+		onClick={() => props.setSelectedSlot(slot)} className={`available-slot ${props.selectedSlot == slot ? "active-slot" : ""}`}>{format(toDate(slot.date), 'h:mm a')}
+	</div> );
+} 
 
 function AvailableSlots(props: any) {
  const [data, setData]: [data: any, setData: any] = useState([]);
@@ -51,7 +60,7 @@ function AvailableSlots(props: any) {
     contact_type: props.appointmentContactType,
   }})
       .then(result => setData(result.data));
-  }, []);
+  }, [props.selectedDay]);
 
   return (
       <div className="embeddable-availability-container">
@@ -69,8 +78,8 @@ function AvailableSlots(props: any) {
                   Morning
                 </span>
                 <div className="available-slots-for-day">
-                  { timeArrays[0].map((slot, index) => <span>{slot.date}</span>)
-                    
+                  { timeArrays[0].map((slot, index) => availableSlot(slot, index, props) )
+                    	
                   }
                 </div>
               </div>
@@ -82,7 +91,7 @@ function AvailableSlots(props: any) {
                   Afternoon
                 </span>
                 <div className="available-slots-for-day">
-                  { timeArrays[1].map((slot, index) => <span>{slot.date}</span>)}
+                  { timeArrays[1].map((slot, index) => availableSlot(slot, index, props))}
                 </div>
               </div>
             }
@@ -93,7 +102,7 @@ function AvailableSlots(props: any) {
                   Evening
                 </span>
                 <div className="available-slots-for-day">
-                  { timeArrays[2].map((slot, index) => <span>{slot.date}</span>)
+                  { timeArrays[2].map((slot, index) => availableSlot(slot, index, props))
                   }
                 </div>
               </div>
@@ -119,12 +128,12 @@ function AvailableSlots(props: any) {
           }
 
           <div
-
             className="available-slot-action"
           >
             <button
               className="sw-button primary-button large-button slot-confirm-button"
-              disabled={true}
+              disabled={!props.selectedSlot}
+              onClick={props.moveToNextStep}
             >
               Confirm Date and Time
             </button>         

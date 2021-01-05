@@ -19,7 +19,7 @@ function DayPicker(props: any) {
     provider_id: props.providerId
   }})
       .then(result => setData(result.data));
-  }, []);
+  }, [props.selectedDay && props.selectedDay.getMonth()]);
 
   const highlightDates = data && data.days_available 
       ? data.days_available.map((day: string) => parse(day, "yyyy-MM-dd", new Date()))
@@ -30,6 +30,7 @@ function DayPicker(props: any) {
           <DatePicker
             inline
             useWeekdaysShort={true}
+            onMonthChange={(e: any) => props.setSelectedDay(e)}
             onChange={(e: any) => props.setSelectedDay(e)}
             highlightDates={highlightDates}
           />

@@ -179,6 +179,26 @@
     }
 }
 
+
+.available-slot-action {
+    margin: auto auto 0 auto;
+
+    @include mobile {
+        margin: auto 0 0 0;
+    }
+
+
+    .__react_component_tooltip {
+        border-radius: 0;
+        font-size: 11px;
+
+        &:after {
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+        }
+    }
+}
+
 .available-slot.active-slot {
     background-color: rgb(22, 40, 74);
     color: rgb(255, 255, 255);
