@@ -32,6 +32,7 @@ function DayPicker(props: any) {
             useWeekdaysShort={true}
             onMonthChange={(e: any) => props.setSelectedDay(e)}
             onChange={(e: any) => props.setSelectedDay(e)}
+            selected={props.selectedDay}
             highlightDates={highlightDates}
           />
       </div>
