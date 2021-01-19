@@ -11,7 +11,8 @@ function AppointmentTypes(props: any) {
     axios
       .get("http://localhost:3650/api/v2/appointment_types.json", {
   params: {
-    clients_can_book: true
+    clients_can_book: true,
+    provider_id: props.providerId
   }})
       .then(result => setData(result.data));
   }, []);

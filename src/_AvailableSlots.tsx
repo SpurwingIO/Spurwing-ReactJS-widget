@@ -47,7 +47,7 @@ function AvailableSlots(props: any) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3650/api/v2/booking/slots_available.json", {
+      .get("http://localhost:3650/api/v2/bookings/slots_available.json", {
   params: {
     org_level: false,
     timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'America/New_York',

@@ -16,17 +16,13 @@ function EmbeddableHeader(props: any) {
               <div className="mobile-nav-arrow">
                 {props.embedWidgetSteps &&
                 props.embedWidgetSteps[props.stepIndex - 1] ? (
-                  <span
-                     onClick={() => props.setStepIndex(props.stepIndex - 1)}
-                    className="has-pointer big-chevron-left"
-                    aria-hidden="true"
-                    >
-                    〈
-                  </span>
+                   <a className="has-pointer" onClick={() => props.setStepIndex(props.stepIndex - 1)}>
+                    ◀
+                  </a>
                 ) : null}
               </div>
               <div className="mobile-nav-header">
-                <div className="instruction is-fullwidth">Appointment Type{props.embedWidgetSteps &&
+                <div className="instruction is-fullwidth">{props.embedWidgetSteps &&
                 props.embedWidgetSteps[props.stepIndex]
                   ? props.embedWidgetSteps[props.stepIndex].title
                   : null}

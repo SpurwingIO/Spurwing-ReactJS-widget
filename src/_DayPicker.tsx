@@ -10,7 +10,7 @@ function DayPicker(props: any) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3650/api/v2/booking/days_available.json", {
+      .get("http://localhost:3650/api/v2/bookings/days_available.json", {
   params: {
     org_level: false,
     date_from_month: props.selectedDay,

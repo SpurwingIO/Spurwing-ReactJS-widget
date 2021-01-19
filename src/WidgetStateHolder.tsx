@@ -7,16 +7,30 @@ import CompletedBookingInfo from './_CompletedBookingInfo'
 import EmbeddableHeader from './_EmbeddableHeader'
 
 
-function WidgetStateHolder() {
-  const steps = ["appointment_types", "datetime_select", "contact_info"];
-
+function WidgetStateHolder(props: any) {
+  const [steps, setSteps] = useState([]);
   const [selectedAppointmentType, setAppointmentType] = useState();
   const [selectedContactType, setContactType] = useState();
   const [stepIndex, setStepIndex] = useState(0);
   const [selectedSlot, setSelectedSlot] = useState();
   const [bookedAppointment, setBookedAppointment] = useState();
 
-  const currentStep = steps[stepIndex]
+   useEffect(() => {
+    axios
+      .get("http://localhost:3650/api/v2/bookings/steps.json", {
+  params: {
+    provider_id: props.providerId
+  }})
+      .then(result => setSteps(result.data.steps));
+  }, []);
+
+
+  const currentStep: any = steps[stepIndex]
+
+  if (!currentStep) {
+    return null;
+  }
+
 
   if (bookedAppointment) {
     return (<CompletedBookingInfo
@@ -24,7 +38,8 @@ function WidgetStateHolder() {
                />)
   }
 
-  if (currentStep === "appointment_types") {
+
+  if (currentStep.id === "select_appt_type") {
     return (
       <>
         <EmbeddableHeader
@@ -36,6 +51,7 @@ function WidgetStateHolder() {
           selectedAppointmentType={selectedAppointmentType}
           selectedContactType={selectedContactType}
           setContactType={setContactType}
+          providerId={props.providerId}
           setAppointmentType={setAppointmentType} 
           moveToNextStep={() => setStepIndex(stepIndex + 1)}
         />
@@ -43,7 +59,7 @@ function WidgetStateHolder() {
     );
   }
 
-  if (currentStep === "datetime_select") {
+  if (currentStep.id === "select_date_time") {
     return (
       <>
       <EmbeddableHeader
@@ -53,7 +69,7 @@ function WidgetStateHolder() {
           headerText={"Book an Appointment"} />
       <DateTimeSelector
         selectedAppointmentType={selectedAppointmentType}
-        providerId={"43041487-7932-4c87-9b49-251df4b42a9c"}
+        providerId={props.providerId}
         selectedSlot={selectedSlot}
         setSelectedSlot={setSelectedSlot}
         moveToNextStep={() => setStepIndex(stepIndex + 1)}
@@ -62,7 +78,7 @@ function WidgetStateHolder() {
     );
   }
   
-  if (currentStep === "contact_info") {
+  if (currentStep.id === "your_information") {
     return (
        <>
       <EmbeddableHeader

@@ -1,6 +1,22 @@
 @import 'mixins';
+$button-disabled-color: #D0D0D0;
 
+// sw Button VARIABLES
+$primary-button-color: #4A90E2;
+$primary-button-color-interact: #3970B1;
 
+$light-text-button-color: #FFFFFF;
+$dark-text-button-color: #4A90E2;
+
+$utility-button-border-color: #4A90E2;
+$utility-button-background-color: #FFFFFF;
+
+@keyframes spinAround {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(359deg); } }
+    
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -10,8 +26,16 @@
   text-align: center;
 }
 
+.help.is-danger {
+    color: #ef526c;
+}
+
 .is-full-width {
   width: 100%;
+}
+
+.has-pointer {
+  cursor: pointer;
 }
 
 .is-gapless {
@@ -31,12 +55,6 @@ body {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -76,7 +94,6 @@ body {
     border-radius: 10px;
     min-height: 465px;
     width: 100%;
-    min-width: 350px;
     max-width: 491px;
     padding: 20px 30px 20px 30px;
 
@@ -1018,3 +1035,58 @@ body {
     display: -ms-flexbox;
     display: flex;
 }
+
+.confirm-appt-type-button {
+    height: 44px;
+    padding: 0 40px;
+}
+
+.slot-confirm-button {
+  font-size: 18px;
+  height: 44px;
+  padding: 0 20px;
+  width: 238px;
+}
+
+.continue-button {
+    height: 44px;
+    padding: 0 32px 0 32px;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+
+.sw-button:not(.is-loading)[disabled],
+.sw-button:not(.is-loading)[disabled]:not(.is-loading):hover,
+.sw-button:not(.is-loading)[disabled]:not(.is-loading):active,
+.sw-button:not(.is-loading)[disabled]:not(.is-loading):focus{
+  border-color: $button-disabled-color !important;
+  background: $button-disabled-color !important;
+  color: $light-text-button-color !important;
+  cursor: not-allowed;
+}
+
+.sw-button.is-loading::after, .control.is-loading::after, .loader {
+  -webkit-animation: spinAround 500ms infinite linear;
+          animation: spinAround 500ms infinite linear;
+  border: 2px solid #dbdbdb;
+  border-radius: 290486px;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  content: "";
+  display: block;
+  height: 1em;
+  position: relative;
+  width: 1em;
+}
+
+.sw-button.is-loading {
+  color: transparent !important;
+  pointer-events: none;
+}
+
+.sw-button.is-loading::after {
+  left: calc(50% - (1em / 2));
+  top: -10px;
+}
+
