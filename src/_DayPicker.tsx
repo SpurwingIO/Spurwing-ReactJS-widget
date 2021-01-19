@@ -3,6 +3,7 @@ import axios from "axios";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { parse } from 'date-fns'
+import rootUrl from './config/rootUrl';
 
 function DayPicker(props: any) {
  const [data, setData]: [data: any, setData: any] = useState([]);
@@ -10,7 +11,7 @@ function DayPicker(props: any) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3650/api/v2/bookings/days_available.json", {
+      .get(`${rootUrl}/api/v2/bookings/days_available.json`, {
   params: {
     org_level: false,
     date_from_month: props.selectedDay,

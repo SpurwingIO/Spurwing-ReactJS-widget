@@ -1,6 +1,7 @@
 import React, { useEffect, useState }  from 'react';
 import axios from "axios";
 import AppointmentTypeOption from './_AppointmentTypeOption'
+import rootUrl from './config/rootUrl';
 
 
 function AppointmentTypes(props: any) {
@@ -9,7 +10,7 @@ function AppointmentTypes(props: any) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3650/api/v2/appointment_types.json", {
+      .get(`${rootUrl}/api/v2/appointment_types.json`, {
   params: {
     clients_can_book: true,
     provider_id: props.providerId

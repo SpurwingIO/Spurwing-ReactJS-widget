@@ -1,6 +1,7 @@
 import React, { useEffect, useState }  from 'react';
 import axios from "axios";
 import { Form, Field } from 'react-final-form'
+import rootUrl from './config/rootUrl';
 
 
 
@@ -11,7 +12,7 @@ function ContactInfoForm(props: any) {
 
   const onSubmit = async (values: any) => {
     const slot = props.selectedSlot
-    return axios.post('http://localhost:3650/api/v2/bookings/complete_booking.json', {
+    return axios.post(`${rootUrl}/api/v2/bookings/complete_booking.json`, {
       ...values,
       date: slot.date,
       provider_id: slot.provider_id,

@@ -5,6 +5,7 @@ import DateTimeSelector from './DateTimeSelector'
 import ContactInfoForm from './ContactInfoForm'
 import CompletedBookingInfo from './_CompletedBookingInfo'
 import EmbeddableHeader from './_EmbeddableHeader'
+import rootUrl from './config/rootUrl';
 
 
 function WidgetStateHolder(props: any) {
@@ -17,7 +18,7 @@ function WidgetStateHolder(props: any) {
 
    useEffect(() => {
     axios
-      .get("http://localhost:3650/api/v2/bookings/steps.json", {
+      .get(`${rootUrl}/api/v2/bookings/steps.json`, {
   params: {
     provider_id: props.providerId
   }})
