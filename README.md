@@ -4,7 +4,7 @@ This is an example of a booking widget built on top of [the Spurwing API](https:
 The widget lets a client select an appointment type, find an available appointment slot, provide personal info, and book the appointment.
 This is the same widget that we host automatically for all Spurwing customers. You can host this widget yourself as-is, fork it and make modifications, or just use it as an example of how to make different API calls.
 
-![demo]()
+![demo](https://user-images.githubusercontent.com/1649883/105534553-461ae080-5cb3-11eb-85d3-91690ca9901d.png)
 
 # Usage
 
