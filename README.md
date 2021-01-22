@@ -1,46 +1,63 @@
-# Getting Started with Create React App
+# The Spurwing Booking Widget
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is an example of a booking widget built on top of [the Spurwing API](https://spurwing.io).
+The widget lets a client select an appointment type, find an available appointment slot, provide personal info, and book the appointment.
+This is the same widget that we host automatically for all Spurwing customers. You can host this widget yourself as-is, fork it and make modifications, or just use it as an example of how to make different API calls.
 
-## Available Scripts
+![demo]()
 
-In the project directory, you can run:
+# Usage
 
-### `npm start`
+First, make sure you have a Spurwing API key and account. If you don't have one, you can go to https://spurwing.io and chat with one of our developers to see if you're a fit.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Second, clone the repository to your computer, and install dependencies.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+git clone https://github.com/Spurwing/spurwing_widget.git
+cd spurwing_widget
+npm install
+```
 
-### `npm test`
+Third, adjust config options in (App.tsx)[https://github.com/Spurwing/spurwing_widget/blob/master/src/App.tsx]. They can either be set directly in the code, or passed in via URL params. You can get your provider ID from [your Spurwing Dashboard](https://dashboard.spurwing.io).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run the project locally, just do
 
-### `npm run build`
+```bash
+npm start
+```
+# Deploying to Production
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+When you are ready to deploy, you can run
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm build
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This will generate a production-ready build that can be hosted with any static website host.
+We really like Netlify and S3/Cloudfront ourselves.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Questions?
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If you're having any trouble getting started or just want to say hi, email us at support@spurwing.io! :wave:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Submitting a PR
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+We welcome any contributions! Please create an issue before submitting a pull request.
 
-## Learn More
+When creating a pull request, be sure to include a screenshot! 🎨
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+MIT © Spurwing
+
+
+
+
+
+
+
+
+
+
+
