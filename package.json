@@ -25,7 +25,9 @@
   },
   "scripts": {
     "start": "PORT=4040 react-scripts start",
-    "build": "react-scripts build",
+    "build": "REACT_APP_API_DOMAIN=production && echo $REACT_APP_API_DOMAIN && react-scripts build",
+    "production-deploy": "aws s3 sync build/ s3://spurwing-prod-widget --exclude 'index.html*' && npm run production-index",
+    "production-index": "aws s3 cp build/index.html s3://spurwing-prod-widget/index.html",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
