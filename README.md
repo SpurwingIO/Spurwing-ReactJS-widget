@@ -36,10 +36,11 @@ npm build
 This will generate a production-ready build that can be hosted with any static website host.
 We really like Netlify and S3/Cloudfront ourselves.
 
-
-## Questions?
-
-If you're having any trouble getting started or just want to say hi, email us at support@spurwing.io! :wave:
+## Support
+- Our website: https://www.spurwing.io/
+- For public issues and bugs please use the GitHub Issues Page.
+- For enquiries and private issues reach out to us at support@spurwing.io
+- Join our Discord Community Server: https://discord.gg/j3gd5Qk5uW
 
 ### Submitting a PR
 
