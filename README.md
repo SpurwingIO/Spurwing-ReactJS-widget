@@ -2,7 +2,7 @@
 
 This is an example of a booking widget built on top of [the Spurwing API](https://spurwing.io).
 The widget lets a client select an appointment type, find an available appointment slot, provide personal info, and book the appointment.
-This is the same widget that we host automatically for all Spurwing customers. You can host this widget yourself as-is, fork it and make modifications, or just use it as an example of how to make different API calls. Learn more about the [Spurwing Scheduling API](https://github.com/Spurwing/Appointment-Scheduling-API).
+This is the same widget that we host automatically for all Spurwing customers. You can host this widget yourself as-is, fork it and make modifications, or just use it as an example of how to make different API calls. Learn more about the [Spurwing Scheduling API](https://github.com/Spurwingio/Appointment-Scheduling-API).
 
 ![demo](https://user-images.githubusercontent.com/1649883/105534553-461ae080-5cb3-11eb-85d3-91690ca9901d.png)
 
@@ -13,12 +13,12 @@ First, make sure you have a Spurwing API key and account. If you don't have one,
 Second, clone the repository to your computer, and install dependencies.
 
 ```bash
-git clone https://github.com/Spurwing/spurwing_widget.git
+git clone https://github.com/SpurwingIO/Spurwing-ReactJS-widget.git
 cd spurwing_widget
 npm install
 ```
 
-Third, adjust config options in (App.tsx)[https://github.com/Spurwing/spurwing_widget/blob/master/src/App.tsx]. They can either be set directly in the code, or passed in via URL params. You can get your provider ID from [your Spurwing Dashboard](https://dashboard.spurwing.io).
+Third, adjust config options in (App.tsx)[https://github.com/SpurwingIO/Spurwing-ReactJS-widget/blob/master/src/App.tsx]. They can either be set directly in the code, or passed in via URL params. You can get your provider ID from [your Spurwing Dashboard](https://dashboard.spurwing.io).
 
 To run the project locally, just do
 
